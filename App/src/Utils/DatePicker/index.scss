@@ -1,0 +1,55 @@
+.calender-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	> svg {
+		cursor: pointer;
+		width: 4rem;
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+}
+.calender {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	> .day-name {
+		color: var(--color-secondary);
+	}
+
+	> .day {
+		border-radius: 50%;
+		&:hover {
+			background-color: var(--color-primary);
+			color: var(--color-background);
+			cursor: pointer;
+			opacity: 0.75;
+		}
+
+		&.not-current-month {
+			opacity: 0.25;
+		}
+
+		&.today {
+			border: 2px solid var(--color-accent);
+		}
+
+		&.selected {
+			background-color: var(--color-primary);
+			color: var(--color-background);
+		}
+	}
+
+	> * {
+		flex: 0 0 14%;
+		aspect-ratio: 1/1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		user-select: none;
+	}
+}

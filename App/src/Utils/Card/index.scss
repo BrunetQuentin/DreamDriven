@@ -1,0 +1,17 @@
+.card {
+	width: fit-content;
+	height: fit-content;
+
+	border: 1px solid var(--color-secondary);
+	border-radius: 0.75rem;
+	overflow: hidden;
+
+	> .card-header {
+		border-bottom: 1px solid var(--color-secondary);
+	}
+
+	> * {
+		padding: 1rem;
+		background-color: var(--color-background);
+	}
+}
