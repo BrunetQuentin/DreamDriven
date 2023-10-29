@@ -1,0 +1,33 @@
+{
+    "DaysOfWeek": {
+        "0": "Lundi",
+        "1": "Mardi",
+        "2": "Mercredi",
+        "3": "Jeudi",
+        "4": "Vendredi",
+        "5": "Dimanche",
+        "6": "Samedi"
+    },
+    "MonthsOfYear": {
+        "0": "Janvier",
+        "1": "Février",
+        "2": "Mars",
+        "3": "Avril",
+        "4": "Mai",
+        "5": "Juin",
+        "6": "Juillet",
+        "7": "Août",
+        "8": "Septembre",
+        "9": "Octobre",
+        "10": "Novembre",
+        "11": "Décembre"
+    },
+    "Section": {
+        "dashboard": "Tableau de bord",
+        "projects": "Projets",
+        "tasks": "Tâches",
+        "journal": "Journal",
+        "files": "Fichiers",
+        "settings": "Paramètres"
+    }
+}

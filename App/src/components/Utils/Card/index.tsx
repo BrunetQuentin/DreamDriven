@@ -8,9 +8,9 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Card = ({ header, children, ...divAttr }: CardProps) => {
 	return (
-		<div className="card">
+		<div {...divAttr} className={'card ' + (divAttr.className ?? '')}>
 			{header && <div className="card-header">{header}</div>}
-			<div {...divAttr}>{children}</div>
+			<div className="card-body">{children}</div>
 		</div>
 	)
 }

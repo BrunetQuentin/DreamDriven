@@ -1,12 +1,18 @@
 import {
 	faBell,
+	faBook,
 	faCaretDown,
 	faCaretRight,
+	faChalkboardUser,
+	faDiagramProject,
+	faFolder,
+	faGears,
 	type IconDefinition
 } from '@fortawesome/free-solid-svg-icons'
 import { faIdCard } from '@fortawesome/free-solid-svg-icons/faIdCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
 import './index.scss'
 
@@ -26,26 +32,28 @@ const Navigation = () => {
 		return [
 			{
 				name: 'dashboard',
-				icon: faIdCard
+				icon: faChalkboardUser
 			},
 			{
 				name: 'projects',
-				icon: faIdCard
+				icon: faDiagramProject
 			},
 			{
 				name: 'journal',
-				icon: faIdCard
+				icon: faBook
 			},
 			{
 				name: 'files',
-				icon: faIdCard
+				icon: faFolder
 			},
 			{
 				name: 'settings',
-				icon: faIdCard
+				icon: faGears
 			}
 		]
 	}, [])
+
+	const { t } = useTranslation()
 
 	return (
 		<div id="navigation">
@@ -72,7 +80,8 @@ const Navigation = () => {
 					<p>1</p>
 				</div>
 			</div>
-			A voir intégrer un truc sympa mais je sais pas quoi ?
+			A voir intégrer un truc sympa mais je sais pas quoi ? Peut etre un fun
+			fact dans une card pour motiver les gens ?
 			<div className="navigations-wrapper">
 				{navigation.map((item, index) => (
 					<Link
@@ -83,7 +92,7 @@ const Navigation = () => {
 						}
 					>
 						<FontAwesomeIcon icon={item.icon} />
-						<p>{item.name}</p>
+						<p>{t('Section.' + item.name)}</p>
 						{firstPath === item.name && (
 							<FontAwesomeIcon icon={faCaretRight} className="caret-right" />
 						)}

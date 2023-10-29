@@ -1,0 +1,19 @@
+#app {
+	display: flex;
+	height: 100%;
+	border-radius: 2rem;
+	padding: 1rem;
+	gap: 2rem;
+
+	> .main-section {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 50%;
+
+		> .section-name {
+			color: var(--color-accent);
+			font-size: 1.5rem;
+			margin: 1rem 0;
+		}
+	}
+}

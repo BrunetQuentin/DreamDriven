@@ -1,21 +1,21 @@
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Card from '../Card'
 import './index.scss'
 
 interface IDatePickerProps {
-	onChange: (date: Date) => void
+	onChange?: (date: Date) => void
 }
 
-const DatePicker = () => {
+const DatePicker = ({ onChange }: IDatePickerProps) => {
 	const [currentDate, setCurrentDate] = useState(new Date())
 
 	const [selectedDate, setSelectedDate] = useState({
 		month: currentDate.getMonth(),
 		year: currentDate.getFullYear()
 	})
-
 	// get the first monday closest to the first day of the month or the first day of the month if it is a monday
 	const firstDay = useMemo(() => {
 		const firstDay = new Date(selectedDate.year, selectedDate.month, 1)
@@ -36,21 +36,48 @@ const DatePicker = () => {
 		return days
 	}, [firstDay])
 
+	const handleChangeMonth = (direction: 'left' | 'right') => {
+		const increment = direction === 'left' ? -1 : 1
+		const newDate = new Date(selectedDate.year, selectedDate.month + increment)
+		setSelectedDate({
+			month: newDate.getMonth(),
+			year: newDate.getFullYear()
+		})
+	}
+
+	useEffect(() => {
+		onChange?.(currentDate)
+	}, [currentDate])
+
+	const { t } = useTranslation()
+
 	return (
 		<Card
 			header={
-				<div className="calender-header">
-					<FontAwesomeIcon icon={faCaretLeft} />
-					<span>{selectedDate.month + ' ' + selectedDate.year}</span>
-					<FontAwesomeIcon icon={faCaretRight} />
+				<div className="calendar-header">
+					<FontAwesomeIcon
+						icon={faCaretLeft}
+						onClick={() => {
+							handleChangeMonth('left')
+						}}
+					/>
+					<span>
+						{t('MonthsOfYear.' + selectedDate.month) + ' ' + selectedDate.year}
+					</span>
+					<FontAwesomeIcon
+						icon={faCaretRight}
+						onClick={() => {
+							handleChangeMonth('right')
+						}}
+					/>
 				</div>
 			}
-			className="calender"
+			className="calendar"
 		>
 			{Array.from(Array(7).keys()).map((day, index) => {
 				return (
 					<div key={index} className="day-name">
-						{day}
+						{t('DaysOfWeek.' + day).substring(0, 3)}
 					</div>
 				)
 			})}

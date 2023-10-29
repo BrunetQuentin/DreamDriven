@@ -3,8 +3,10 @@ import './index.scss'
 
 const Dashboard = () => {
 	return (
-		<div>
-			<DatePicker />
+		<div className="dashboard">
+			<div className="dashboard-calendar">
+				<DatePicker />
+			</div>
 		</div>
 	)
 }

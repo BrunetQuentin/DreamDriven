@@ -1,6 +1,7 @@
 #navigation {
 	height: auto;
-	width: 14rem;
+	width: 15rem;
+	min-width: 15rem;
 	background-color: var(--color-secondary);
 	border-radius: 1.5rem;
 	padding: 1.5rem;
@@ -86,6 +87,10 @@
 			// reset a style
 			text-decoration: none;
 			color: inherit;
+
+			> svg {
+				width: 1.5rem;
+			}
 
 			&:hover {
 				cursor: pointer;

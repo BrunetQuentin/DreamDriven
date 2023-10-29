@@ -1,0 +1,24 @@
+.projects {
+	width: auto;
+	display: flex;
+
+	> .project {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 50%;
+		margin: 1rem;
+
+		.project-header {
+			display: flex;
+			flex-direction: column;
+
+			> .project-name {
+				color: var(--color-accent);
+			}
+
+			> .project-date {
+				opacity: 0.5;
+			}
+		}
+	}
+}
